@@ -1,0 +1,18 @@
+var mongo = require('../util/MongoConnection.js');
+
+function User() {
+	
+	var name;
+	var age;
+
+	function create(){
+		mongo.getProxy().open(function(err, db) {
+		if(!err) {
+			db.collection('test', function(err, collection) {
+				  var doc1 = {'hello':'doc1'};
+				  collection.insert(doc1);
+			});
+		  }
+		});
+	}
+}
