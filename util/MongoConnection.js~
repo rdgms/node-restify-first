@@ -1,17 +1,11 @@
 var mongo = require('mongodb'),  
-	Server = mongo.Server,  
-	Db = mongo.Db;
+			Server = mongo.Server,  
+			Db = mongo.Db;
 
-var object = function(){
+exports.getConnection = function() {
+	var server = new Server('localhost', 27017, {auto_reconnect: true});
+	var db = new Db('testDB',server);
 
-	this.server = new Server('localhost', 27017, {auto_reconnect: true});
-	this.db = new Db('exampleDb', this.server);
-	
-	var getProxy = function(){
-		return this.db;
-	}
-}
-
-exports.object = object;
-
+	return db;
+};
 

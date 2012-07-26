@@ -1,5 +1,8 @@
-module.exports = function (db) {
-	var User = require('mongolia').model(db, 'user');
+var mongodb = require('../util/MongoConnection.js');
+
+module.exports = function () {
+	var User = require('mongolia').model(mongodb.getConnection(), 'user');
+	
 	User.namespaces = {
 		public: ['name', 'age'],
 		private: { extend: 'public', add: ['_id']}
