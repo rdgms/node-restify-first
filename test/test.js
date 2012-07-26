@@ -43,7 +43,7 @@ describe('User Controller', function(){
 	});
 
 	describe('#updateByName', function(){
-		it('should return code 201 when parameters are correct', function(){
+		it('should return code 202 when parameters are correct', function(){
 			var controller = new UserController();
 			controller.updateByName("Rodrigo M Silva", "22",function(document){
 				assert.equal("202", document.code);	

@@ -49,6 +49,7 @@ describe('User Controller', function(){
 				assert.equal("202", document.code);	
 			});
 		});
+
 		it('should return code 500 when parameters are incorrect', function(){
 			var controller = new UserController();
 			controller.updateByName("", "",function(document){
