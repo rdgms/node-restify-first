@@ -18,6 +18,38 @@ module.exports = function() {
 		);
 	};
 
+	this.addPhoneByName = function(name,phone,callback){
+		var response;
+		this.user.validateAndUpdate(
+			{name:name},{'$push': phone},
+			function (error, validator) {
+				if (validator.hasErrors()) {
+					jsonDocument = {code: '500',msg:validator.errors};
+				}else {
+					jsonDocument = {code: '202',msg:validator.updated_document};
+				}
+				callback(jsonDocument);
+			}
+		);
+	};
+	
+	this.removePhoneByName = function(name,number,callback){
+		var phone = {number:number};
+		var response;
+		this.user.validateAndUpdate(
+			{name:name},{'$pull': phone},
+			function (error, validator) {
+				if (validator.hasErrors()) {
+					jsonDocument = {code: '500',msg:validator.errors};
+				}else {
+					jsonDocument = {code: '202',msg:validator.updated_document};
+				}
+				callback(jsonDocument);
+			}
+		);
+	};
+
+
 	this.updateByName = function(name,age,callback){
 		var jsonDocument;
 		this.user.validateAndUpdate(

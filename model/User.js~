@@ -1,4 +1,5 @@
 var mongodb = require('../util/MongoConnection.js');
+var Phone = require('../model/Phone.js');
 
 module.exports = function () {
 	var User = require('mongolia').model(mongodb.getConnection(), 'user');
@@ -16,6 +17,15 @@ module.exports = function () {
 		});
     	callback(null, validator);
   	};
+
+	User.addPhone= function (user, phone, callback) {
+		user = Phone().getEmbeddedDocument('user', user);
+		user.phone;
+		this.update(phone, callback);
+	};
+
+
+
 
   return User;
 };
