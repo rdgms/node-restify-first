@@ -65,11 +65,13 @@ module.exports = function() {
 		);
 	};
 
-	this.findByName = function(name,callback){		
+	this.findByName = function(callback,name){
+		debugger;		
 		var jsonDocument;
 		this.user.mongo('findOne:public', 
-			{name:name}, 
-			function(err,document){
+			{name:name},
+			function(err, document){
+				debugger;
 				if (err != null){
 					jsonDocument = {code: '404',msg:err};
 				}else if (document == null){

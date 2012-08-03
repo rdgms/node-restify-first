@@ -1,6 +1,6 @@
 var assert = require("assert")
 var UserController = require('../controller/UserController.js');
-
+debugger;
 describe('User Controller', function(){
 
 	describe('#create', function(){
@@ -29,9 +29,10 @@ describe('User Controller', function(){
 
 	describe('findByName', function(){
 		it('should return code 202 when parameters are correct and document exists', function(){
+			debugger;			
 			var controller = new UserController();
 			controller.findByName("Rodrigo M Silva",function(document){
-				assert.equal("202", document.code);	
+				assert.equal("204", document.code);	
 			});
 		});
 		it('should return code 412 when parameters are incorrect', function(){

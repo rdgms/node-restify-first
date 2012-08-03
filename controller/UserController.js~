@@ -34,7 +34,7 @@ module.exports = function() {
 	};
 	
 	this.removePhoneByName = function(name,number,callback){
-		var phone = {number:number}
+		var phone = {number:number};
 		var response;
 		this.user.validateAndUpdate(
 			{name:name},{'$pull': phone},
@@ -65,11 +65,12 @@ module.exports = function() {
 		);
 	};
 
-	this.findByName = function(name,callback){		
+	this.findByName = function(callback,name){
+		debugger;		
 		var jsonDocument;
 		this.user.mongo('findOne:public', 
-			{name:name}, 
-			function(err,document){
+			{name:name},
+			function(err, document){
 				if (err != null){
 					jsonDocument = {code: '404',msg:err};
 				}else if (document == null){

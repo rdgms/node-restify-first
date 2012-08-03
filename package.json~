@@ -1,0 +1,26 @@
+{
+  "author": "Rodrigo",
+  "name": "restify-first",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rdgms/node-restify-first.git"
+  },
+  "dependencies": {
+	"restify":"",
+	"mongolia":"",
+	"mongodb":"",
+	"bson":"",
+	"underscore":""
+	},
+  "devDependencies": {
+	"should":"",
+	"mocha":""
+
+	},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*",
+	"npm":"1.0.x"
+  }
+}
